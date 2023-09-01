@@ -1,0 +1,77 @@
+{
+    "mode": "Blocks",
+    "workspace": "<xml xmlns=\"http://www.w3.org/1999/xhtml\"><variables><variable type=\"\" id=\"_2.^beQjx|FGt38A,8(E\" islocal=\"false\" iscloud=\"false\" arraylength=\"0\" arraywidth=\"0\">myVariable</variable><variable type=\"\" id=\"vofa6(QJy/{A[Uxr((~2\" islocal=\"false\" iscloud=\"false\" arraylength=\"0\" arraywidth=\"0\">deadBand</variable></variables><comment id=\"2?#_^hT^GjM5l?m!We6A\" x=\"798\" y=\"78\" h=\"349\" w=\"489\">Project: Tank Drive\n\nDescription:\n- The Left up/down Controller Axis (A) will control the speed of the left motor. \n- The Right up/down Controller Axis (D) will control the speed of the right motor.\n- The deadBand variable prevents drift when the Controller's joystick is released.\n\nBrain Supported: 2nd generation\n\nConfiguration: \nLeft Motor in Port 1\nRight Motor in Port 6\nController</comment><block type=\"iq_events_when_started\" id=\".NsXwU_L.OuU1l7Sho$F\" x=\"90\" y=\"70\"><next><block type=\"iq_looks_set_touchled_brightness\" id=\"@:ccIkQ4SGwj/]#m@Ve`\"><field name=\"TOUCHLED\">TouchLED4</field><value name=\"VALUE\"><shadow type=\"math_whole_number\" id=\"wZ!}N;ZnYi%%+Wig??.(\"><field name=\"NUM\">100</field></shadow></value><next><block type=\"iq_variables_set_variable\" id=\"#=W{%VXjnAHswG2EWftg\"><field name=\"VARIABLE\" id=\"vofa6(QJy/{A[Uxr((~2\" variabletype=\"\">deadBand</field><value name=\"VALUE\"><shadow type=\"math_number\" id=\"ywc;xXs}:7M4aX,j{wOz\"><field name=\"NUM\">5</field></shadow></value><next><block type=\"iq_control_forever\" id=\"D^O;3k{KsL5FokO6xY=-\"><statement name=\"SUBSTACK\"><block type=\"iq_control_if_then_else\" id=\"v-YiDbsbsG#h@Yz2H}*$\"><value name=\"CONDITION\"><block type=\"iq_sensing_pressing_controller\" id=\"?GdGlG/`,o#sU7n#a!@@\"><field name=\"BUTTON\">ButtonRUp</field></block></value><statement name=\"SUBSTACK\"><block type=\"iq_looks_set_touchled_color\" id=\"z}ZOb(zauN=~;:cs_jFl\"><field name=\"TOUCHLED\">TouchLED4</field><value name=\"COLOR\"><shadow type=\"iq_looks_colorlist\" id=\"/|f7U@u5-])*qA}UZk!=\"><field name=\"COLOR\">red</field></shadow></value><next><block type=\"iq_control_if_then_else\" id=\"JNvmVnd)1A?StH@{1*tq\"><value name=\"CONDITION\"><block type=\"iq_operator_greater_than\" id=\"flKyS,%p98[S^x(DM,oq\"><value name=\"OPERAND1\"><shadow type=\"math_number\" id=\"0r5~jBQq=zQd2=bXExRk\"><field name=\"NUM\"></field></shadow><block type=\"iq_operator_function\" id=\"NO[,#-XreD}B0%e$}F0r\"><field =\"OPERATOR\">abs</field><value name=\"NUM\"><shadow type=\"math_number\" id=\"YcbdUgw)IN?[qU7VUJA(\"><field name=\"NUM\"></field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"(RAR42rpi;?-)prPg8uJ\"><field name=\"AXIS\">AxisA</field></block></value></block></value><value name=\"OPERAND2\"><shadow type=\"math_number\" id=\"C%*gj9p%XR!0K)0y`a|A\"><field name=\"NUM\">50</field></shadow><block type=\"iq_variables_variable\" id=\"QWl!EECRY%Ll}(Bn*fu1\"><field name=\"VARIABLE\" id=\"vofa6(QJy/{A[Uxr((~2\" variabletype=\"\">deadBand</field></block></value></block></value><statement name=\"SUBSTACK\"><block type=\"iq_motion_set_motor_velocity\" id=\"%1TFg~7PX?R^(29fv:UP\"><field name=\"MOTOR\">LeftMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\"XOv5*0;$/PL)s`sx.^OZ\"><field name=\"NUM\">50</field></shadow><block type=\"iq_operator_multiply\" id=\"sP?,:C*mmaKNmRHh^AL%\"><value name=\"NUM1\"><shadow type=\"math_number\" id=\"JX_w1=|ZTSPK(.Nhvg`J\"><field name=\"NUM\"></field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"iRa(so$^]Lpl%k:F@#gW\"><field name=\"AXIS\">AxisA</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\" id=\"~+hMJ}K^o=oNWUiK;^iD\"><field name=\"NUM\">-1</field></shadow></value></block></value></block></statement><statement name=\"SUBSTACK2\"><block type=\"iq_motion_set_motor_velocity\" id=\"`!M7Qm]sus.0FKlYsPf:\"><field name=\"MOTOR\">LeftMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\",LI:OjfQkdl6Npe#|*e(\"><field name=\"NUM\">0</field></shadow></value></block></statement><next><block type=\"iq_control_if_then_else\" id=\"L0eaD:RuE!gBz1o*?Ozw\"><value name=\"CONDITION\"><block type=\"iq_operator_greater_than\" id=\"];R-KlzMwqW%B*}*TL~~\"><value name=\"OPERAND1\"><shadow type=\"math_number\" id=\"v`DJiP4!GJj@BG]v#;%=\"><field name=\"NUM\"></field></shadow><block type=\"iq_operator_function\" id=\"BHrLmsR#De(|})zD+CIK\"><field name=\"OPERATOR\">abs</field><value name=\"NUM\"><shadow type=\"math_number\" id=\"!BxQ4Zs|y2!g_o_FOo*H\"><field name=\"NUM\"></field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"TDty0dEAgxVr%iJQJeV:\"><field name=\"AXIS\">AxisD</field></block></value></block></value><value name=\"OPERAND2\"><shadow type=\"math_number\" id=\"?c~%2OShpTFz,rJIwI5}\"><field name=\"NUM\">50</field></shadow><block type=\"iq_variables_variable\" id=\"])xF6bViv~^|aS^5yg4$\"><field name=\"VARIABLE\" id=\"vofa6(QJy/{A[Uxr((~2\" variabletype=\"\">deadBand</field></block></value></block></value><statement name=\"SUBSTACK\"><block type=\"iq_motion_set_motor_velocity\" id=\"VNC!F+I+2[)I))`oAFlF\"><field name=\"MOTOR\">RightMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\"?,G%tH(BGH[nlXsXk44`\"><field name=\"NUM\">50</field></shadow><block type=\"iq_operator_multiply\" id=\"#[q:X[@Xl9nq!J~^n}LE\"><value name=\"NUM1\"><shadow type=\"math_number\" id=\"-Le-,nP68hj1Op=^yVhW\"><field name=\"NUM\"></field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"LQ=GM-+ee66yA@1x_Gs4\"><field name=\"AXIS\">AxisD</field></block></value><value name=\"NUM2\"><shadow type=\"math_number\" id=\"m|ZB.NLj{bW[r`B968{P\"><field name=\"NUM\">-1</field></shadow></value></block></value></block></statement><statement name=\"SUBSTACK2\"><block type=\"iq_motion_set_motor_velocity\" id=\"IR$0G|?FQ$*}#u)+riyP\"><field name=\"MOTOR\">RightMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\"7%$)H![cqcsQ_yh1w*vZ\"><field name=\"NUM\">0</field></shadow></value></block></statement><next><block type=\"iq_motion_spin\" id=\"),9nQr=0=:B(fkcOXB|R\"><field name=\"MOTOR\">LeftMotor</field><field name=\"DIRECTION\">fwd</field><next><block type=\"iq_motion_spin\" id=\"^%FlT,ZFy]kt=RN3IB-O\"><field name=\"MOTOR\">RightMotor</field><field name=\"DIRECTION\">fwd</field></block></next></block></next></block></next></block></next></block></statement><statement name=\"SUBSTACK2\"><block type=\"iq_looks_set_touchled_color\" id=\"gYsGjVC/tH/CKLkk|@{q\"><field name=\"TOUCHLED\">TouchLED4</field><value name=\"COLOR\"><shadow type=\"iq_looks_colorlist\" id=\"]QN}Bgd=C^GJ]6h~%G2+\"><field name=\"COLOR\">green</field></shadow></value><next><block type=\"iq_control_if_then_else\" id=\"XyF.g+%T~HxUwsKl;P=L\"><value name=\"CONDITION\"><block type=\"iq_operator_greater_than\" id=\"}6)(/eZMwO~`sc-h,hn^\"><value name=\"OPERAND1\"><shadow type=\"math_number\" id=\"r|+.YRWcEEgV60WB)CUP\"><field name=\"NUM\"></field></shadow><block type=\"iq_operator_function\" id=\"Rq@:t6q2:jTSKE*CVQ-u\"><field name=\"OPERATOR\">abs</field><value name=\"NUM\"><shadow type=\"math_number\" id=\"dQt=O*)nFWfm52Y/(pUO\"><field name=\"NUM\"></field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"ALj2Fv.C~`Yz6#Q!/-WR\"><field name=\"AXIS\">AxisA</field></block></value></block></value><value name=\"OPERAND2\"><shadow type=\"math_number\" id=\"(T9-cR=WF9GjMk`[{T`[\"><field name=\"NUM\">50</field></shadow><block type=\"iq_variables_variable\" id=\"B`xgXK*iwbhi{)1+OUqK\"><field name=\"VARIABLE\" id=\"vofa6(QJy/{A[Uxr((~2\" variabletype=\"\">deadBand</field></block></value></block></value><statement name=\"SUBSTACK\"><block type=\"iq_motion_set_motor_velocity\" id=\"M})/;Fn`u;zFdWAohWxZ\"><field name=\"MOTOR\">LeftMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\"A=PnX}DfFW_GDO,kfqvp\"><field name=\"NUM\">50</field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"Q#JQ00t=|Znhv$ZrCH4d\"><field name=\"AXIS\">AxisA</field></block></value></block></statement><statement name=\"SUBSTACK2\"><block type=\"iq_motion_set_motor_velocity\" id=\"%LzQ=lcMcihisQJs}{Q7\"><field name=\"MOTOR\">LeftMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\":9=l@pW%7Q#$JZ?W]YPx\"><field name=\"NUM\">0</field></shadow></value></block></statement><next><block type=\"iq_control_if_then_else\" id=\"cKRE+,Gy}w$O8U,N:_WL\"><value name=\"CONDITION\"><block type=\"iq_operator_greater_than\" id=\"hQV~pS|VcDY.(d4ykx.}\"><value name=\"OPERAND1\"><shadow type=\"math_number\" id=\"(2=$uH3lUg@e35dp@^}}\"><field name=\"NUM\"></field></shadow><block type=\"iq_operator_function\" id=\"v[$K,o7V6V0#A@AAV2*Z\"><field name=\"OPERATOR\">abs</field><value name=\"NUM\"><shadow type=\"math_number\" id=\"R=gvl1F8@sz2T3]hI]m)\"><field name=\"NUM\"></field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"!wUR:6n~S]TN8JDn`t*-\"><field name=\"AXIS\">AxisD</field></block></value></block></value><value name=\"OPERAND2\"><shadow type=\"math_number\" id=\"hf1|j7RNh2ar+u_4f(]S\"><field name=\"NUM\">50</field></shadow><block type=\"iq_variables_variable\" id=\"=OJZN2JKna/Qo0xpDwC`\"><field name=\"VARIABLE\" id=\"vofa6(QJy/{A[Uxr((~2\" variabletype=\"\">deadBand</field></block></value></block></value><statement name=\"SUBSTACK\"><block type=\"iq_motion_set_motor_velocity\" id=\"?*s-wXNFvO%.U4-V8+PW\"><field name=\"MOTOR\">RightMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\"e-hOAs!X]+{~%5zV-3!i\"><field name=\"NUM\">50</field></shadow><block type=\"iq_sensing_position_of_controller\" id=\"xbA5@IsRW8[w/y=YZ4w{\"><field name=\"AXIS\">AxisD</field></block></value></block></statement><statement name=\"SUBSTACK2\"><block type=\"iq_motion_set_motor_velocity\" id=\"U*]yF*b]t@gQb=6NtwF*\"><field name=\"MOTOR\">RightMotor</field><field name=\"UNITS\">pct</field><value name=\"VELOCITY\"><shadow type=\"math_number\" id=\"I#*aLKnc#lw~)zIykjG#\"><field name=\"NUM\">0</field></shadow></value></block></statement><next><block type=\"iq_motion_spin\" id=\"+`gR?oqRP@sH3i.nDNc]\"><field name=\"MOTOR\">LeftMotor</field><field name=\"DIRECTION\">fwd</field><next><block type=\"iq_motion_spin\" id=\"7O9B7%:(B2_,H!{JULDh\"><field name=\"MOTOR\">RightMotor</field><field name=\"DIRECTION\">fwd</field></block></next></block></next></block></next></block></next></block></statement></block></statement></block></next></block></next></block></next></block></xml>",
+    "rconfig": [
+        {
+            "port": [
+                1
+            ],
+            "name": "LeftMotor",
+            "customName": true,
+            "deviceType": "Motor",
+            "deviceClass": "motor",
+            "setting": {
+                "reversed": "false",
+                "fwd": "forward",
+                "rev": "reverse"
+            },
+            "triportSourcePort": 22
+        },
+        {
+            "port": [
+                6
+            ],
+            "name": "RightMotor",
+            "customName": true,
+            "deviceType": "Motor",
+            "deviceClass": "motor",
+            "setting": {
+                "reversed": true,
+                "fwd": "forward",
+                "rev": "reverse"
+            },
+            "triportSourcePort": 22
+        },
+        {
+            "port": [],
+            "name": "Controller",
+            "customName": false,
+            "deviceType": "Controller",
+            "deviceClass": "controller",
+            "setting": {
+                "left": "",
+                "leftDir": "false",
+                "right": "",
+                "rightDir": "false",
+                "e": "",
+                "eDir": "false",
+                "f": "",
+                "fDir": "false",
+                "drive": "none"
+            },
+            "triportSourcePort": 22
+        },
+        {
+            "port": [
+                4
+            ],
+            "name": "TouchLED4",
+            "customName": false,
+            "deviceType": "TouchLED",
+            "deviceClass": "touchled",
+            "setting": {},
+            "triportSourcePort": 22
+        }
+    ],
+    "slot": 0,
+    "platform": "IQ",
+    "sdkVersion": "20220726.10.00.00",
+    "appVersion": "2.4.5",
+    "minVersion": "2.4.0",
+    "fileFormat": "1.2.0",
+    "icon": "",
+    "targetBrainGen": "Second",
+    "cppStatus": "true",
+    "cpp": "// Make sure all required headers are included.\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include <math.h>\n#include <string.h>\n\n\n#include \"vex.h\"\n\nusing namespace vex;\n\n// Brain should be defined by default\nbrain Brain;\n\n\n// START IQ MACROS\n#define waitUntil(condition)                                                   \\\n  do {                                                                         \\\n    wait(5, msec);                                                             \\\n  } while (!(condition))\n\n#define repeat(iterations)                                                     \\\n  for (int iterator = 0; iterator < iterations; iterator++)\n// END IQ MACROS\n\n\n// Robot configuration code.\ninertial BrainInertial = inertial();\nmotor LeftMotor = motor(PORT1, false);\nmotor RightMotor = motor(PORT6, true);\ncontroller Controller = controller();\ntouchled TouchLED4 = touchled(PORT4);\n\n\n\n// Generated code.\n\n\n\n// define variable for remote controller enable/disable\nbool RemoteControlCodeEnabled = true;\n\n\n\n// Include the IQ Library\n#include \"vex.h\"\n  \n// Allows for easier use of the VEX Library\nusing namespace vex;\n\nfloat myVariable, deadBand;\n\n// \"when started\" hat block\nint whenStarted1() {\n  TouchLED4.setBrightness(100);\n  deadBand = 5.0;\n  while (true) {\n    if (Controller.ButtonRUp.pressing()) {\n      TouchLED4.setColor(red);\n      if (fabs(static_cast<float>(Controller.AxisA.position())) > deadBand) {\n        LeftMotor.setVelocity((Controller.AxisA.position() * -1.0), percent);\n      }\n      else {\n        LeftMotor.setVelocity(0.0, percent);\n      }\n      if (fabs(static_cast<float>(Controller.AxisD.position())) > deadBand) {\n        RightMotor.setVelocity((Controller.AxisD.position() * -1.0), percent);\n      }\n      else {\n        RightMotor.setVelocity(0.0, percent);\n      }\n      LeftMotor.spin(forward);\n      RightMotor.spin(forward);\n    }\n    else {\n      TouchLED4.setColor(green);\n      if (fabs(static_cast<float>(Controller.AxisA.position())) > deadBand) {\n        LeftMotor.setVelocity(Controller.AxisA.position(), percent);\n      }\n      else {\n        LeftMotor.setVelocity(0.0, percent);\n      }\n      if (fabs(static_cast<float>(Controller.AxisD.position())) > deadBand) {\n        RightMotor.setVelocity(Controller.AxisD.position(), percent);\n      }\n      else {\n        RightMotor.setVelocity(0.0, percent);\n      }\n      LeftMotor.spin(forward);\n      RightMotor.spin(forward);\n    }\n  wait(20, msec);\n  }\n  return 0;\n}\n\n\nint main() {\n  whenStarted1();\n}",
+    "target": "Physical"
+}
